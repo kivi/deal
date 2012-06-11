@@ -1,0 +1,49 @@
+<h1>Listing deals</h1>
+
+<table>
+  <tr>
+    <th>Is active</th>
+    <th>Is running</th>
+    <th>Product type</th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    <th>Title</th>
+    <th>Descritpion</th>
+    <th>Price original</th>
+    <th>Price reduced</th>
+    <th>discount</th>
+    <th>Starts at</th>
+    <th>Ends at</th>
+    <th>Min</th>
+    <th>Max</th>
+    <th>Count</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @deals.each do |deal| %>
+  <tr>
+    <td><%= deal.is_active %></td>
+    <td><%= deal.is_running %></td>
+    <td><%= deal.product_type %></td>
+    <td><%= image_tag(deal.image) %></td>
+    <td><%= deal.title %></td>
+    <td><%= deal.descritpion %></td>
+    <td><%= deal.price_original %></td>
+    <td><%= deal.price_reduced %></td>
+    <td><%= deal.discount %></td>
+    <td><%= deal.starts_at %></td>
+    <td><%= deal.ends_at %></td>
+    <td><%= deal.min %></td>
+    <td><%= deal.max %></td>
+    <td><%= deal.count %></td>
+    <td><%= link_to 'Show', deal %></td>
+    <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+    <td><%= link_to 'Destroy', deal, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Deal', new_deal_path %>

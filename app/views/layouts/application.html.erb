@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dealapp</title>
+  <%= javascript_include_tag "jquery-1.7.1.min.js" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "http://code.jquery.com/jquery-1.7.1.js" %>
+
+  <%= csrf_meta_tags %>  
+  <meta name="csrf-param" content="authenticity_token"/>
+  <meta name="csrf-token" content="9SdBB/Uftw7IDQH4aKblEUcLXwvgw9vkju9N1ObyCCM="/>
+  
+  <%= javascript_include_tag "application" %>
+  <%#= javascript_include_tag "script" %>
+  <%= javascript_include_tag "countdown" %>
+  
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>nextsocial</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+</head>
+<body>
+<%= yield %>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<h1>Payments#index</h1>
+
+
+<div class="payment-method content">
+  <ul>
+    <%=li_method('vorkasse', 'Vorkasse (Überweisung)')%>
+    <%=li_method('paypal', '<img src="/assets/payment/paypal.png" alt="PayPal">')%>
+  </ul>
+  <%= link_to 'paypal selected and pay', :action => 'checkout' %>
+</div>
+							
+
+
+<form action="<%= @action_url %>" method="post">
+	<input type="hidden" name="cmd" value="_s-xclick" />
+	<input type="hidden" name="encrypted" value="<%= @encrypted_basic %>" />
+	<input type="image" src="/images/btn_buynow_SM.jpg" name="submit" alt="3 credits">
+</form>
+ 
+ ____________<br />
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="get">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="vikas_1325267190_biz@nextsocial.de">
+<input type="hidden" name="item_name" value="Widget">
+<input type="hidden" name="item_number" value="Wid-001">
+<input type="hidden" name="amount" value="1.00">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="currency_code" value="EUR">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but23.gif" border="0"name="submit">
+</form>
+<br />
+___________
+
+
+
+Request URL:https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&currency_code=EUR&business=vikas_1325267190_biz%40nextsocial.de&return=http%3A%2F%2Flocalhost%2Fcomplete%2F&item_name=Ipod+nano&amount=12&item_name=&amount=&Submit=Submit
+
+https://www.paypal.com/de/cgi-bin/webscr?cmd=_flow&SESSION=6vVzeabsJxn_CLAVD7R50kwlYgMsgRQINt3Bup7mdV-aU8AgqlqwhV_hV24&dispatch=50a222a57771920b6a3d7b606239e4d529b525e0b7e69bf0224adecfb0124e9b61f737ba21b081988562bf19d61623c6f33db8e87506be10
+
+
+https://www.paypal.com/webscr?cmd=_express-checkout&token=EC-0L1799850E3312923&useraction=commit
+
+Click on kauf
+Zahlungsmethode auswählen
+	-express
+		
+
+
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="get" id="payPalForm">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="currency_code" value="EUR">
+
+<i-nput type="hidden" name="item_number" value=""> <!-- Item number 01 - Gener... -->
+<i-nput type="hidden" name="no_note" value="2"> <!-- Quantity: 1 -->
+
+
+<input type="hidden" name="business" value="vikas_1325267190_biz@nextsocial.de">
+<input type="hidden" name="return" value="http://localhost/complete/">
+
+Item Details:<br /><input name="item_name" type="text" id="item_name"  size="45">
+<br /><br />
+Amount: <br /><input name="amount" type="text" id="amount" size="45">
+<br /><br />
+
+Item Details:<br /><input name="item_name" type="text" id="item_name"  size="45">
+<br /><br />
+Amount: <br /><input name="amount" type="text" id="amount" size="45">
+<br /><br />
+
+
+<input type="submit" name="Submit" value="Submit">
+
+</form>
+
+
+<form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post"> 
+<input type="hidden" name="cmd" value="_xclick"> 
+<table> 
+<tr><td><input type="hidden" name="on0" value="Color">Color</td></tr><tr><td><select name="os0"> 
+  <option value="Red">Red €10.00 
+  <option value="Blue">Blue €8.00 
+  <option value="Green">Green €12.00 
+</select> </td></tr> 
+<tr><td><input type="hidden" name="on1" value="Size">Size</td></tr><tr><td><select name="os1"> 
+  <option value="Small">Small  
+  <option value="Large">Large  
+</select> </td></tr> 
+</table> 
+<input type="hidden" name="currency_code" value="EUR"> 
+<input type="submit" name="Submit" value="Submit">
+</form> 

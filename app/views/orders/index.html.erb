@@ -1,0 +1,64 @@
+	<div id="deal-container">
+	    <div id="main" role="main">
+	    	<h3 class="cart-head">Überprüfe deine Bestellung</h3>
+			<p id="notice"><%= notice %></p>
+
+			<%= render :partial => "item", :collection => @order.line_items %>
+	   		<div class="grid grid-8 item-costall">
+				<select>
+	  			 <option>Versand nach:</option>
+				 <option>Deutschland</option>
+				 <option>Europa</option>
+				 <option>Weltweit</option>
+				</select>
+	    		<span>Versand: <%= price_f(@order.shipping_cost) %></span>
+	    		<b>Gesamtpreis*: <%= price_total(@order) %></b>
+	    		<span class="small">Inkl. MwSt (19%): <%= price_vat(@order)%></span>
+	    		<span class="shipping-info small">*Je nach Zahlungsmethode können <a href="shipping.html">Versand</a></span>
+	    	</div>
+	    	<div class="clear"></div>
+<!--
+	    	<h2>Zahlungsmethode</h2>
+	    	<div class="payment-item">
+				<%= payment_method('vorkasse', 'Vorkasse (Überweisung)') %>
+				<%= payment_method('paypal', image_tag('paypal.png', :alt => 'PayPal')) %>
+	    	</div>
+			
+-->
+			<div class="">
+			<h3 class="cart-head">Bestellung abschicken</h3>
+		    	<%= form_tag payments_checkout_path, :id => 'checkout-form' do |f| %>
+					<textarea name="message" placeholder="Nachricht and den Verkäufer..." class="opmessage"></textarea>
+					 <div class="row pull-right" id="agb">
+					 	 <span class="span6 agb-error"><a "#agb-anchor" id="agb-anchor"></a>Bitte die Akzeptzieren Sie unsere AGBs.</span>
+						 <span class="span1"><input type="checkbox" name="acceptagb" id="agb-checkbox" /></span>
+						 <span class="span6">Ich akzeptiere die <a href="agb">AGBs</a>und habe die
+						 <a href="wiederruf">Wiederrufsbelehrungen</a> gelesen.</span>
+					 </div>
+					 
+					 <div class="clear"><br /></div>
+					 <div class="row pull-right">
+						 <div class="span5 btn" id="checkout-button">
+							 Mit Paypal bezahlen
+							 <%= image_submit_tag('paypal.png', :alt => 'PayPal', :class => "btn") %></a>
+						 </div>
+						 <div class="span1"></div>
+						 <!-- <div class="span4">
+							 <a href="/payments/checkout" class="btn btn-primary">Mit Paypal bezahlen</a>
+						 </div> -->
+					 </div>
+				<% end %>				
+		    	<div class="clear"><br /></div>
+				<p>Nachdem Du auf "Bestellung abschicken" geklickt hast,
+					bekommst Du eine E-Mail mit sämtlichen Details zu Deiner Bestellung.</p>
+			</div>
+	    	<div class="clear"></div>
+	    </div>
+	    <div class="footer">
+		   	<ul>
+		    	<li><a href="./agb">AGBs</a></li>
+		   		<li><a href="./Dtn">Datenschutzbestimmungen</a></li>
+		    </ul>
+		    <img src="/assets/nextsocial.png" alt="nextsocial logo small" />
+		</div>
+  	</div> 

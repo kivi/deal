@@ -1,0 +1,35 @@
+------------<%= @deal.ends_at.to_time.to_i %>-----------------
+<div id="container" class="deal">
+	<h1><%= @deal.title %></h1>
+	<div id="inner">
+		<div id="deal-header">
+			<%= image_tag(@deal.image) %>
+			<div id="blueright">
+				<div>
+					<%= link_to 'Jetzt kaufen', order_deal_path(@deal) %></a>
+				</div>
+				<div id="whiteright">
+					<div id="wr_left">
+						<p class="smaller">Rabatt</p>
+						<p class="bigger"><%= @deal.discount %>%</p>
+					</div>
+					<div id="wr_right">
+						<%= price(@deal) %>
+					</div>
+				</div>	
+				<div id="restzeit">
+					<h2>Restzeit</h2>
+					<div id="timer"><span time="<%= @deal.ends_at.to_time.to_i %>" class="kkcount-down"></span></div>
+					<div id="timer"><span time="1330103546" class="kkcount-down"></span></div>
+				</div>
+				<div id="noch">
+					<h2>deals</h2>
+					<span class="number"><%= @deal.count %></span>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<%= render 'deal1_footer' %>
+		<div class="clear"></div>
+	</div>
+</div>

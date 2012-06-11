@@ -1,0 +1,69 @@
+<%= form_for(@deal) do |f| %>
+  <% if @deal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
+
+      <ul>
+      <% @deal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :is_active %><br />
+    <%= f.check_box :is_active %>
+  </div>
+  <div class="field">
+    <%= f.label :is_running %><br />
+    <%= f.check_box :is_running %>
+  </div>
+  <div class="field">
+    <%= f.label :product_type %><br />
+    <%= f.text_field :product_type %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :descritpion %><br />
+    <%= f.text_area :descritpion %>
+  </div>
+  <div class="field">
+    <%= f.label :price_original %><br />
+    <%= f.number_field :price_original %>
+  </div>
+  <div class="field">
+    <%= f.label :price_reduced %><br />
+    <%= f.number_field :price_reduced %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br />
+    <%= f.number_field :discount %>
+  </div>
+  <div class="field">
+    <%= f.label :starts_at %><br />
+    <%= f.datetime_select :starts_at %>
+  </div>
+  <div class="field">
+    <%= f.label :ends_at %><br />
+    <%= f.datetime_select :ends_at %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br />
+    <%= f.number_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :max %><br />
+    <%= f.number_field :max %>
+  </div>
+  <div class="field">
+    <%= f.label :count %><br />
+    <%= f.number_field :count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

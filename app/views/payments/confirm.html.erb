@@ -1,0 +1,49 @@
+	<div id="deal-container">
+	    <div id="main" role="main">
+	    	<h3 class="cart-head">Bitte überprüfe deine Bestellung und die Adresse</h3>
+			<p id="notice"><%= notice %></p>
+			<h4 class="cart-head">Addresse</h4>
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td>
+					  <%= @payment.firstname%>
+					  <%= @payment.lastname%>
+					  <%= @payment.middelname%>
+					 </td>
+				</tr>
+				<tr><td>Firma:</td><td><%= @payment.company%></td></tr>
+				<tr><td>Adresse:</td><td><%= @payment.address1%></td></tr>
+				<tr><td>Aderesszusatz:</td><td><%= @payment.address2%></td></tr>
+				<tr><td>Stadt:</td><td><%= @payment.city%></td></tr>
+				<tr><td>E-Mail:</td><td><%= @payment.email%></td></tr>
+			</table>
+
+
+	    	<div class="clear"></div>
+<%= @message %>
+	    	<div class="clear"><br /></div>
+
+		    
+			<%= form_tag payments_purchase_path,
+				:id => @payment.id, 
+				:token => params[:token], 
+				:payer_id => params[:PayerID] do |f| %>
+
+				<input type="hidden" name="id" value="<%=@payment.id%>" />
+				<input type="hidden" name="payer_id" value="<%=params['PayerID']%>" />
+				<input type="hidden" name="token" value="<%=params['token']%>" />
+   			 <%= submit_tag "Zahlung und Daten bestätigen", :class => "btn btn-primary" %>
+  <% end %>
+
+
+	    	<div class="clear"></div>
+	    </div>
+	    <div class="footer">
+		   	<ul>
+		    	<tr><a href="./agb">AGBs</a></tr>
+		   		<tr><a href="./Dtn">Datenschutzbestimmungen</a></tr>
+		    </ul>
+		    <img src="/assets/nextsocial.png" alt="nextsocial logo small" />
+		</div>
+  	</div> 

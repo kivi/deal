@@ -1,0 +1,22 @@
+	    	<div class="item" id="<%= "item_#{item.id}" %>">
+	    		<div class="grid grid-4">
+					<%= image_tag(item.deal.image, class: 'item-pic') %>
+	    			<p class="description"><%= item.deal.title %></p>
+	    		</div>
+	    		<div class="grid grid-2">
+					Menge:
+					<%= form_tag(line_item_quantity_path(item),
+						 		remote: true, method: 'put',
+								id: "formquantity") %>
+						<input type="text" value="<%= item.quantity %>" class="quantity">
+						<input type="image" src="/assets/increase.png" name="q" value="1" class="quantitiybutton" alt="increase">
+						<input type="image" src="/assets/decrease.png" name="q" value="-1" class="quantitiybutton" alt="decrease">
+					</form>
+	    		</div>
+	    		<div class="grid grid-2 item-cost">
+	    			<div class="item-cost-content">
+	    				<%= price_deal(item) %>|<%= price_line(item) %>
+	    				<a href="delte"><!--span class="item-delete">x</span--></a>
+	    			</div>
+	    		</div>
+	    	</div>
